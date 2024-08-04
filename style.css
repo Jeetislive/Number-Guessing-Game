@@ -1,0 +1,108 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(10, 10, 10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    background-color: rgb(49, 47, 47);
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+    width: 260px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.container::after, .container::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 300px;
+    background-image: conic-gradient(from var(--angle),red,blue,green,lightgreen,rgb(245, 21, 226),red, transparent 90%);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 2px;
+    border-radius: 20px;
+    animation: 3s spin linear infinite;
+}
+.container::before {
+    filter: blur(1.5rem);
+    opacity: 0.8;
+}
+@keyframes spin{
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container form {
+    margin-top: 30px;
+}
+
+.container form input {
+    width: 92%;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.container form button {
+    padding: 10px 20px;
+    margin-left: 90px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container form button:hover {
+    background-color: #418644;
+}
+#feedback {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+#new-game {
+    margin-top: 20px;
+    cursor: pointer;
+    height: 35px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    display: none;
+}
+#new-game:hover{
+    background-color: #c41d1d;
+}
+#message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+}
+#score {
+    display: none;
+
+}
